@@ -7,6 +7,15 @@ pipeline {
         // Use a build automation tool such as Maven to compile and package your code
         sh 'mvn clean install'
       }
+      post {
+        always {
+          // Use the Email Extension Plugin to send notification emails with logs attached
+          mail to: "abliscence@gmail.com",
+          subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+          body: "Build was successful !!"
+          attachlog: True
+        }
+      }
     }
     stage('Unit and Integration Tests') {
       steps {
