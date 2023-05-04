@@ -81,6 +81,7 @@ pipeline {
         // Use a deployment tool such as AWS CodeDeploy to deploy the application to a production server
         echo "Tool Used: AWS CodeDeploy"
         echo "AWS CodeDeploy is used in automation to deploy applications automatically to EC2 instances or on-premises servers, ensuring consistent deployment of new code changes across environments."
+        echo "Testing Automated Build..."
       }
     }
   }
