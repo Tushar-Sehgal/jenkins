@@ -12,7 +12,7 @@ pipeline {
         success {
           // Use the Email Extension Plugin to send notification emails
           mail to: "abliscence@gmail.com",
-          subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+          subject: "Build Status Email",
           body: "Build was successful!"
         }
       }
@@ -20,9 +20,15 @@ pipeline {
     stage('Unit and Integration Tests') {
       steps {
         // Use test automation tool Emma to run unit tests and integration tests
-        steps{
-          echo "Tool Used: Emma"
-          echo "Emma is a tool used in Java programming for unit and integration testing. By keeping track of how much of the code is being tested, it helps to ensure that it functions correctly and is bug-free. Having thorough tests and testing as much of our code as possible can help find bugs earlier and cut down on the amount of time needed for debugging. As a result of Emma's widespread use in the Java community, it is a dependable tool for testing across various projects."
+        echo "Tool Used: Emma"
+        echo "Emma is a tool used in Java programming for unit and integration testing. By keeping track of how much of the code is being tested, it helps to ensure that it functions correctly and is bug-free. Having thorough tests and testing as much of our code as possible can help find bugs earlier and cut down on the amount of time needed for debugging. As a result of Emma's widespread use in the Java community, it is a dependable tool for testing across various projects."
+      }
+      post {
+        success {
+          // Use the Email Extension Plugin to send notification emails
+          mail to: "abliscence@gmail.com",
+          subject: "Unit and Integration Test Email",
+          body: "Unit and integration test was successful!"
         }
       }
     }
@@ -43,7 +49,7 @@ pipeline {
         success {
           // Use the Email Extension Plugin to send notification emails
           mail to: "abliscence@gmail.com",
-          subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+          subject: "Security Scan Status Email",
           body: "Security scan was successful!"
         }
       }
@@ -65,7 +71,7 @@ pipeline {
         success {
           // Use the Email Extension Plugin to send notification emails
           mail to: "abliscence@gmail.com",
-          subject: "Pipeline ${currentBuild.result}: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+          subject: "Integration Tests on Staging Status Email",
           body: "Integration test was successful!"
         }
       }
